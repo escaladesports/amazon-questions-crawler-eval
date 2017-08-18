@@ -1,5 +1,11 @@
 'use strict'
 
+// Asynchronous elements the browser should wait for
+module.exports.wait = {
+	questionBlock: '.askTeaserQuestions > div',
+	questionDate: '.cdAuthorInfoBlock'
+}
+
 // Parses first page of questions
 module.exports.allQuestions = opt => {
 	if(!opt) opt = {}
