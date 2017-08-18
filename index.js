@@ -8,16 +8,16 @@ module.exports.wait = {
 
 // Parses first page of questions
 module.exports.allQuestions = opt => {
-	if(!opt) opt = {}
-	if(!opt.elements) opt.elements = {}
+	if (!opt) opt = {}
+	if (!opt.elements) opt.elements = {}
 	var defaultElements = {
 		productTitle: '.askProductDescription a',
 		questionBlock: '.askTeaserQuestions > div',
 		question: 'a',
 		link: 'a'
 	}
-	for(var i in defaultElements){
-		if(!(i in opt.elements)){
+	for (var i in defaultElements) {
+		if (!(i in opt.elements)) {
 			opt.elements[i] = defaultElements[i]
 		}
 	}
@@ -66,13 +66,13 @@ module.exports.singleQuestion = opt => {
 	var dateQuery = document.querySelector(opt.elements.questionDate)
 	var authorQuery = document.querySelector(opt.elements.author).innerText
 
-	var date = undefined;
+	var date
 	if (dateQuery) {
 		var str = dateQuery.textContent.split(' on ')
 		if (str && str[1]) {
-			date = new Date(str[1].trim());
+			date = str[1].trim()
 			if (date == 'Invalid Date') {
-				date = undefined;
+				date = ''
 			}
 		}
 	}
